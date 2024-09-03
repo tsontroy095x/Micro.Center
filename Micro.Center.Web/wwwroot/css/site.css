@@ -1,0 +1,95 @@
+html {
+  font-size: 14px;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+    margin-bottom: 521px;
+}
+nav {
+    background-color: #eaeaea
+    
+}
+nav {
+    font-weight:500
+}
+.footer {
+    position:absolute;
+    bottom:0;
+}
+
+.footer-bg {      
+    background-color: #dbdbdb !important;
+    
+}
+
+.inner-footer {
+    background-color: #bbbbbb;
+    
+}
+.inner-footer {
+    font-weight:500
+}
+
+table.dataTable th.dt-type-numeric, table.dataTable th.dt-type-date, table.dataTable td.dt-type-numeric, table.dataTable td.dt-type-date {
+    text-align: left;
+}
+
+
+.social-media-links .link {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    text-decoration: none;
+    
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --header-height: 100px;
+        --header-height-min: 80px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .search-popup .search-popup-close {
+        top: 1em;
+        right: 1em;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .search-popup .cat-list-item,
+    .search-popup-form .form-control {
+        font-size: 1.125em;
+    }
+
+    .search-popup .search-popup-close {
+        top: 1em;
+        right: 1em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --header-height: 100px;
+        --header-height-min: 80px;
+    }
+}
+

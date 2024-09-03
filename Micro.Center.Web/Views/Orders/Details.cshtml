@@ -1,0 +1,71 @@
+﻿@using Micro.Center.Web.Models.Order
+@model OrderDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerFullName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CustomerFullName)
+        </dd>    
+    </dl> 
+</div>
+<div>
+    <a asp-action="Index">
+        <button type="button" class="btn btn-secondary me-2">Back to List</button>
+    </a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">
+        <button type="button" class="btn btn-primary">Edit</button>
+    </a>
+</div>
+<hr />
+
+<h2>Order Products</h2>
+
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Product Name</th>                          
+            <th>Price</th>       
+            <th>Description</th>          
+        </tr>
+    </thead>
+<tbody>
+    @foreach(var product in Model.Products)
+    {
+     <tr>
+         <td>@product.Name</td>
+         <td class="text-start">@product.Price</td>
+         <td>@product.Description</td>
+     </tr> 
+    }
+
+</tbody>
+</table>

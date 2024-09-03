@@ -1,0 +1,101 @@
+﻿@using Micro.Center.Entities
+@using Micro.Center.Web.Models.Customer
+@model IEnumerable<CustomerViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container mt-3">
+
+    <h1>Customers</h1>
+    <hr />
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create New Customer</a>
+    </p>
+    <hr />
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>Actions</th>        
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var customer in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => customer.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => customer.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => customer.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => customer.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => customer.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => customer.Gender)
+            </td>
+                <td>
+                    <a class="text-primary text-decoration-none" asp-action="Edit" asp-route-id="@customer.Id" title="Edit">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </a>
+                    <a class="text-info text-decoration-none ms-2" asp-action="Details" asp-route-id="@customer.Id" title="Details">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </a>
+                    <a class="text-danger text-decoration-none ms-2 pointer" asp-action="Delete" data-bs-toggle="modal" data-bs-target="#DeleteModal_@customer.Id" title="Delete">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+
+                    <div class="modal fade" id="DeleteModal_@customer.Id" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Customer</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h3>
+                                        Are you sure want to delete
+                                        <span class="text-danger">@customer.FullName</span>?
+                                    </h3>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+
+                                    <form asp-action="Delete" asp-route-id="@customer.Id">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
